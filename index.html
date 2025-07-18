@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DAVETEG SCHOOLS</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      color: #5a2d82;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header styles */
+    header {
+      max-width: 100%;
+      height: 100vh;
+      background: mediumpurple;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      color: whitesmoke;
+      padding: 2rem;
+      gap: 2%;
+    }
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      max-width: 50%;
+      padding: 10px;
+      margin: 15px;
+      flex: 1 1 400px;
+    }
+    .text-block h1 {
+      font-size: 7rem;
+      color: transparent;
+      letter-spacing: 2.1rem;
+      animation: animate 8s linear infinite;
+      margin: 0 0 0.2rem 0;
+      user-select: none;
+    }
+    @keyframes animate {
+      0% { color: darkred; }
+      25% { color: lightblue; }
+      50% { color: green; }
+      75% { color: yellow; }
+      100% { color: orange; }
+    }
+    .text-block h2 {
+      font-size: 3.5rem;
+      margin: 0 0 0.5rem;
+      color: whitesmoke;
+    }
+    .text-block h3 {
+      font-size: 2rem;
+      margin: 0;
+      font-style: italic;
+      color: whitesmoke;
+    }
+    header img {
+      max-width: 40%;
+      height: 95%;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 50%;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      flex: 1 1 380px;
+      min-width: 300px;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #5a2d82;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #f0e6ff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #472462;
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      padding: 2rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    section:last-child {
+      border: none;
+    }
+    section h2 {
+      color: #5a2d82;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid mediumpurple;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    section p {
+      font-size: 1.1rem;
+      max-width: 850px;
+      margin-bottom: 1.3rem;
+      line-height: 1.7;
+    }
+    ul {
+      max-width: 850px;
+      list-style-type: disc;
+      padding-left: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    ul li {
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    /* Facilities grid */
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+    }
+    .facility {
+      background-color: #e8dfff;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 4px 8px rgb(90 45 130 / 0.2);
+      transition: transform 0.3s ease;
+    }
+    .facility:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(90, 45, 130, 0.35);
+    }
+    .facility h3 {
+      margin-top: 0;
+      color: #3b1a66;
+    }
+
+    /* Admission form */
+    form {
+      max-width: 600px;
+      background-color: #f3f0ff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(90, 45, 130, 0.25);
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #4b2e7a;
+    }
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.65rem;
+      margin-bottom: 1.2rem;
+      border: 1.5px solid #a58fce;
+      border-radius: 7px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: mediumpurple;
+      background-color: #fefaff;
+    }
+    form button {
+      background-color: mediumpurple;
+      color: whitesmoke;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: rebeccapurple;
+    }
+
+    /* Staff section */
+    .staff-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      max-width: 1100px;
+      justify-content: center;
+    }
+    .staff-card {
+      background-color: #e8dfff;
+      border-radius: 12px;
+      width: 230px;
+      box-shadow: 0 6px 12px rgba(90, 45, 130, 0.3);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .staff-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(90, 45, 130, 0.5);
+    }
+    .staff-card img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      height: 230px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .staff-card h4 {
+      margin: 0 0 0.2rem 0;
+      color: #4b2e7a;
+    }
+    .staff-card p {
+      margin: 0;
+      font-style: italic;
+      color: #6a4d9f;
+    }
+
+    /* Events timeline */
+    .events-list {
+      max-width: 900px;
+      list-style: none;
+      padding-left: 0;
+    }
+    .events-list li {
+      margin-bottom: 1.4rem;
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 1.15rem;
+    }
+    .events-list li::before {
+      content: '•';
+      color: mediumpurple;
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 2rem;
+      line-height: 0;
+    }
+
+    /* Contact section */
+    .contact-info {
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+    .contact-info p {
+      font-size: 1.15rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #5a2d82;
+      color: #f0e6ff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+      }
+      .text-block, header img {
+        max-width: 90%;
+        flex: 1 1 100%;
+        margin: 10px auto;
+      }
+      .text-block h1 {
+        font-size: 5rem;
+        letter-spacing: 1rem;
+        text-align: center;
+      }
+      .text-block h2, .text-block h3 {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="text-block">
+      <h1>DAVTEG</h1>
+      <h2>Nursery and Primary School</h2>
+      <h3>Moulding The Young</h3>
+    </div>
+    <img src="davteg.jpg" alt="DAVETEG Schools" />
+  </header>
+
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#admission">Admission</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#staff">Our Staff</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About DAVETEG Schools</h2>
+      <p>
+        Established in 1998, DAVETEG Nursery and Primary School has a rich history of delivering high-quality education rooted in strong values and discipline. Located in the heart of the community, we provide a nurturing environment aimed at developing confident, innovative, and responsible learners.
+      </p>
+      <p>
+        Our mission is to mould the young minds of today to become the leaders and visionaries of tomorrow. We cherish diversity, encourage creativity, and foster an atmosphere where every child’s talents and abilities can flourish.
+      </p>
+      <p>
+        At DAVETEG, we believe education is more than academics — we focus on the all-round development of the child encompassing social skills, emotional intelligence, moral compass, and physical fitness.
+      </p>
+    </section>
+
+    <section id="curriculum">
+      <h2>Curriculum</h2>
+      <p>
+        Our carefully tailored curriculum strikes a perfect balance between academic rigor and creative exploration. We adopt the Nigerian National Curriculum integrated with global best practices to prepare students for the future.
+      </p>
+      <ul>
+        <li><strong>Core Subjects:</strong> Mathematics, English Language, Science, Social Studies</li>
+        <li><strong>Creative Arts:</strong> Drawing, Music, Drama</li>
+        <li><strong>Physical Education:</strong> Daily fitness and sports activities</li>
+        <li><strong>Information Technology:</strong> Basic computer literacy starting from Nursery</li>
+        <li><strong>Religious and Moral Education:</strong> Emphasizing good values and social responsibility</li>
+      </ul>
+      <p>
+        Regular assessments, project-based learning, and interactive lessons ensure learners understand concepts deeply and apply knowledge confidently.
+      </p>
+    </section>
+
+    <section id="admission">
+      <h2>Admission Process</h2>
+      <p>
+        We welcome applications from parents seeking quality education and a secure, child-friendly atmosphere. Our admission process is designed to be straightforward and transparent.
+      </p>
+      <ul>
+        <li>Submit completed application form available at the school’s reception or downloadable from our website.</li>
+        <li>Provide photocopies of birth certificate and previous school report (if applicable).</li>
+        <li>Attend an interview with the child for assessment purposes.</li>
+        <li>Pay applicable registration fees to confirm admission.</li>
+      </ul>
+      <p>
+        For enquiries or to schedule a school tour, please contact our admission office.
+      </p>
+
+      <h3>Online Admission Form</h3>
+      <form action="#" method="POST" aria-label="Admission Form">
+        <label for="fullname">Full Name of Child</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="Enter child's full name" />
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="class">Applying For Class</label>
+        <select id="class" name="class" required>
+          <option value="" disabled selected>Select Class</option>
+          <option value="Nursery">Nursery</option>
+          <option value="Primary One">Primary One</option>
+          <option value="Primary Two">Primary Two</option>
+          <option value="Primary Three">Primary Three</option>
+          <option value="Primary Four">Primary Four</option>
+          <option value="Primary Five">Primary Five</option>
+          <option value="Primary Six">Primary Six</option>
+        </select>
+
+        <label for="parentname">Parent/Guardian Name</label>
+        <input type="text" id="parentname" name="parentname" required placeholder="Enter parent/guardian full name" />
+
+        <label for="contact">Contact Phone Number</label>
+        <input type="tel" id="contact" name="contact" required placeholder="+234 800 123 4567" pattern="^\+?\d{10,15}$" />
+
+        <label for="address">Home Address</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter your home address" required></textarea>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </section>
+
+    <section id="facilities">
+      <h2>Our Facilities</h2>
+      <p>DAVETEG School provides a stimulating and safe environment to support effective learning and development through the following facilities:</p>
+      <div class="facilities-grid">
+        <div class="facility">
+          <h3>Spacious Classrooms</h3>
+          <p>Well-ventilated and brightly lit classrooms equipped with comfortable furniture.</p>
+        </div>
+        <div class="facility">
+          <h3>Modern Library</h3>
+          <p>A comprehensive collection of books, digital resources, and reading areas to encourage literacy.</p>
+        </div>
+        <div class="facility">
+          <h3>Computer Lab</h3>
+          <p>State-of-the-art computer stations providing students digital literacy and coding skills.</p>
+        </div>
+        <div class="facility">
+          <h3>Creative Arts Studio</h3>
+          <p>Dedicated art and craft rooms fostering creativity and artistic expression.</p>
+        </div>
+        <div class="facility">
+          <h3>Playground and Sports Facilities</h3>
+          <p>Safe, secure play areas and fields for football, athletics, and other sports activities.</p>
+        </div>
+        <div class="facility">
+          <h3>Health Clinic</h3>
+          <p>On-site nurse for first aid, regular health checks, and support.</p>
+        </div>
+        <div class="facility">
+          <h3>Secure Campus</h3>
+          <p>Gated and supervised environment with CCTV and trained security personnel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="staff">
+      <h2>Meet Our Dedicated Staff</h2>
+      <p>Our qualified and experienced teachers and support staff are committed to the growth and success of every child.</p>
+      <div class="staff-cards">
+        <div class="staff-card">
+          <img src="staff1.jpg" alt="Mrs. Jane Adewole - Headteacher" />
+          <h4>Mrs. Jane Adewole</h4>
+          <p>Headteacher</p>
+        </div>
+        <div class="staff-card">
+          <img src="staff2.jpg" alt="Mr. David Okoro - Mathematics Teacher" />
+          <h4>Mr. David Okoro</h4>
+          <p>Mathematics Teacher</p>
+        </div>
+        <div class="staff-card">
+          <img src="staff3.jpg" alt="Mrs. Ngozi Emeka - Science Teacher" />
+          <h4>Mrs. Ngozi Emeka</h4>
+          <p>Science Teacher</p>
+        </div>
+        <div class="staff-card">
+          <img src="staff4.jpg" alt="Mr. Chinedu Umeh - Physical Education" />
+          <h4>Mr. Chinedu Umeh</h4>
+          <p>Physical Education</p>
+        </div>
+        <div class="staff-card">
+          <img src="staff5.jpg" alt="Miss Ifeoma Nwosu - Music & Arts" />
+          <h4>Miss Ifeoma Nwosu</h4>
+          <p>Music & Arts</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="events">
+      <h2>Upcoming Events & Activities</h2>
+      <ul class="events-list">
+        <li><strong>August 10, 2025:</strong> Back-to-School Orientation & Parent-Teacher Meeting</li>
+        <li><strong>September 15, 2025:</strong> Science Fair and Exhibition</li>
+        <li><strong>October 5 - 10, 2025:</strong> Sports Week — Inter-Class Football and Athletics</li>
+        <li><strong>November 20, 2025:</strong> Annual Cultural Day Celebration</li>
+        <li><strong>December 8, 2025:</strong> Christmas Carol and Award Presentation</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you! Whether you have questions about admissions, need further information, or want to schedule a visit, you can reach us through the following channels:</p>
+      <div class="contact-info">
+        <p><strong>Address:</strong> 123 Education Avenue, Lagos, Nigeria</p>
+        <p><strong>Phone:</strong> +234 803 123 4567</p>
+        <p><strong>Email:</strong> info@davtegschools.ng</p>
+        <p><strong>Office Hours:</strong> Mon - Fri: 8:00 AM - 4:00 PM</p>
+      </div>
+      <form action="#" method="POST" aria-label="Contact Form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 DAVETEG Schools. All rights reserved.
+  </footer>
+
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      alert('Right-click is disabled on this page.');
+    });
+
+    // Block common shortcuts: F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    document.addEventListener('keydown', function(e) {
+      // F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+        alert('F12 is disabled.');
+      }
+
+      // Ctrl+Shift+I (DevTools)
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+        alert('Opening DevTools is disabled.');
+      }
+
+      // Ctrl+Shift+J (Console)
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        alert('Opening DevTools is disabled.');
+      }
+
+      // Ctrl+U (View Source)
+      if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+        e.preventDefault();
+        alert('View Source is disabled.');
+      }
+    });
+  </script>
+</body>
+</html>
