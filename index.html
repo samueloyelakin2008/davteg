@@ -24,34 +24,39 @@
     a:hover {
       text-decoration: underline;
     }
+
     /* Header styles */
     header {
-      max-width: 100%;
-      height: 100vh;
+      width: 100%;
+      min-height: 60vh;
       background: mediumpurple;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       color: whitesmoke;
-      padding: 2rem;
-      gap: 2%;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+      box-sizing: border-box;
     }
+
     .text-block {
+      flex: 1 1 300px;
+      max-width: 600px;
+      padding: 1rem;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      max-width: 50%;
-      padding: 10px;
-      margin: 15px;
-      flex: 1 1 400px;
     }
+
     .text-block h1 {
-      font-size: 7rem;
+      font-size: clamp(3rem, 8vw, 6rem);
       color: transparent;
-      letter-spacing: 2.1rem;
+      letter-spacing: clamp(0.5rem, 5vw, 2rem);
       animation: animate 8s linear infinite;
-      margin: 0 0 0.2rem 0;
+      margin: 0 0 0.3rem 0;
       user-select: none;
+      line-height: 1;
     }
     @keyframes animate {
       0% { color: darkred; }
@@ -61,25 +66,27 @@
       100% { color: orange; }
     }
     .text-block h2 {
-      font-size: 3.5rem;
-      margin: 0 0 0.5rem;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      margin: 0 0 0.75rem 0;
       color: whitesmoke;
     }
     .text-block h3 {
-      font-size: 2rem;
+      font-size: clamp(1rem, 2.5vw, 2rem);
       margin: 0;
       font-style: italic;
       color: whitesmoke;
     }
     header img {
-      max-width: 40%;
-      height: 95%;
-      object-fit: cover;
-      margin: 10px;
+      flex: 1 1 280px;
+      max-width: 350px;
+      width: 80vw;
+      height: auto;
+      object-fit: contain;
       border-radius: 50%;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-      flex: 1 1 380px;
-      min-width: 300px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
     }
 
     /* Navigation */
@@ -295,25 +302,37 @@
       font-weight: 600;
     }
 
-    /* Responsive */
+    /* Responsive adjustments */
     @media (max-width: 900px) {
       header {
         flex-direction: column;
+        padding: 1.5rem 1rem;
+      }
+
+      .text-block {
+        max-width: 90vw;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      header img {
+        max-width: 60vw;
+        margin: 1rem auto 0;
+        width: 80vw;
         height: auto;
-        padding: 1rem;
       }
-      .text-block, header img {
-        max-width: 90%;
-        flex: 1 1 100%;
-        margin: 10px auto;
-      }
+
       .text-block h1 {
-        font-size: 5rem;
-        letter-spacing: 1rem;
-        text-align: center;
+        font-size: clamp(2.5rem, 10vw, 5rem);
+        letter-spacing: clamp(0.3rem, 4vw, 1.5rem);
       }
-      .text-block h2, .text-block h3 {
-        text-align: center;
+
+      .text-block h2 {
+        font-size: clamp(1.25rem, 5vw, 2.5rem);
+      }
+
+      .text-block h3 {
+        font-size: clamp(1rem, 3vw, 1.8rem);
       }
     }
   </style>
